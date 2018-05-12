@@ -53,3 +53,11 @@ instance Misty [] where
   unicorn a = [a]
   banana _ [] = []
   banana m (x : xs) = (m x) ++ (banana m xs)
+
+
+-- Exercise 8
+-- Relative Difficulty: 2
+instance Misty Maybe where
+  unicorn = Just
+  banana _ Nothing = Nothing
+  banana m (Just a) = m a
