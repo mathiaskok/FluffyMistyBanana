@@ -67,3 +67,17 @@ instance Misty Maybe where
 instance Misty ((->) t) where
   unicorn a = \_ -> a
   banana m fa = \t -> m (fa t) t
+
+-- Exercise 10
+-- Relative Difficulty: 6
+instance Misty (EitherLeft t) where
+  unicorn = EitherLeft . Left
+  banana _ (EitherLeft (Right b)) = EitherLeft $ Right b
+  banana m (EitherLeft (Left a)) = m a
+
+-- Exercise 11
+-- Relative Difficulty: 6
+instance Misty (EitherRight t) where
+  unicorn = EitherRight . Right
+  banana _ (EitherRight (Left b)) = EitherRight $ Left b
+  banana m (EitherRight (Right a)) = m a
