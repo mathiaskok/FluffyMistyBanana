@@ -47,3 +47,9 @@ class Misty m where
   furry' :: (a -> b) -> m a -> m b
   furry' map mist = banana (unicorn . map) mist
 
+-- Exercise 7
+-- Relative Difficulty: 2
+instance Misty [] where
+  unicorn a = [a]
+  banana _ [] = []
+  banana m (x : xs) = (m x) ++ (banana m xs)
