@@ -31,4 +31,8 @@ instance Fluffy (EitherLeft t) where
   furry m (EitherLeft (Left a)) = EitherLeft $ Left $ m a
   furry m (EitherLeft (Right b)) = EitherLeft $ Right $ b
 
-  
+-- Exercise 5
+-- Relative Difficulty: 5
+instance Fluffy (EitherRight t) where
+  furry m (EitherRight (Right a)) = EitherRight $ Right $ m a
+  furry m (EitherRight (Left b)) = EitherRight $ Left $ b
