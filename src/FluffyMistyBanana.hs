@@ -21,3 +21,14 @@ instance Fluffy Maybe where
 -- Relative Difficulty: 5
 instance Fluffy ((->) t) where
   furry m f = \t -> m $ f t
+
+newtype EitherLeft b a = EitherLeft (Either a b)
+newtype EitherRight a b = EitherRight (Either a b)
+
+-- Exercise 4
+-- Relative Difficulty: 5
+instance Fluffy (EitherLeft t) where
+  furry m (EitherLeft (Left a)) = EitherLeft $ Left $ m a
+  furry m (EitherLeft (Right b)) = EitherLeft $ Right $ b
+
+  
