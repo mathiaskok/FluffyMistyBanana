@@ -61,3 +61,9 @@ instance Misty Maybe where
   unicorn = Just
   banana _ Nothing = Nothing
   banana m (Just a) = m a
+
+-- Exercise 9
+-- Relative Difficulty: 6
+instance Misty ((->) t) where
+  unicorn a = \_ -> a
+  banana m fa = \t -> m (fa t) t
