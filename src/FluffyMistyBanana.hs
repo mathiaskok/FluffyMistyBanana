@@ -36,3 +36,14 @@ instance Fluffy (EitherLeft t) where
 instance Fluffy (EitherRight t) where
   furry m (EitherRight (Right a)) = EitherRight $ Right $ m a
   furry m (EitherRight (Left b)) = EitherRight $ Left $ b
+
+-- This is clearly identical to the monad typeclass. bind and return are not used as this would make the problems trivial.
+class Misty m where
+  banana :: (a -> m b) -> m a -> m b
+  unicorn :: a -> m a
+  -- Exercise 6
+  -- Relative Difficulty: 3
+  -- (use banana and/or unicorn)
+  furry' :: (a -> b) -> m a -> m b
+  furry' map mist = banana (unicorn . map) mist
+
