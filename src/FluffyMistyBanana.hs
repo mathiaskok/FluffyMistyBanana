@@ -110,11 +110,12 @@ moppy (x : xs) m =
 sausage :: (Misty m) => [m a] -> m [a]
 sausage xs = moppy xs id
 
+
 -- Exercise 16
 -- Relative Difficulty: 6
 -- (bonus: use apple + furry')
 banana2 :: (Misty m) => (a -> b -> c) -> m a -> m b -> m c
-banana2 = error "todo"
+banana2 f ma mb = apple mb (furry' f ma)
 
 -- Exercise 17
 -- Relative Difficulty: 6
