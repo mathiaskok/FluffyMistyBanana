@@ -108,7 +108,7 @@ moppy (x : xs) m =
 -- Relative Difficulty: 6
 -- (bonus: use moppy)
 sausage :: (Misty m) => [m a] -> m [a]
-sausage = error "todo"
+sausage xs = moppy xs id
 
 -- Exercise 16
 -- Relative Difficulty: 6
