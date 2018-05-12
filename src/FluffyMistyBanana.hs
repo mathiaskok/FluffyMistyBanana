@@ -98,7 +98,11 @@ apple mist applier =
 -- Exercise 14
 -- Relative Difficulty: 6
 moppy :: (Misty m) => [a] -> (a -> m b) -> m [b]
-moppy = error "todo"
+moppy [] _ = unicorn []
+moppy (x : xs) m = 
+  banana (\y ->
+    banana (\ys -> unicorn $ y : ys) $ moppy xs m)
+    (m x)
 
 -- Exercise 15
 -- Relative Difficulty: 6
