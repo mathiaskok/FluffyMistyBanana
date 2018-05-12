@@ -15,3 +15,9 @@ instance Fluffy [] where
 instance Fluffy Maybe where
   furry _ Nothing = Nothing
   furry m (Just a) = Just $ m a
+
+
+-- Exercise 3
+-- Relative Difficulty: 5
+instance Fluffy ((->) t) where
+  furry m f = \t -> m $ f t
