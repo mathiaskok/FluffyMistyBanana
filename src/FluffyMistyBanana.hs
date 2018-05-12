@@ -136,10 +136,16 @@ newtype State s a = State {
 -- Exercise 19
 -- Relative Difficulty: 9
 instance Fluffy (State s) where
-  furry = error "todo"
+  furry f (State m) = State $ \s ->
+    let (s', a) = m s in
+    (s', f a)
 
 -- Exercise 20
 -- Relative Difficulty: 10
 instance Misty (State s) where
-  banana = error "todo"
-  unicorn = error "todo"
+  unicorn a = State $ \s -> (s, a)
+  banana binder (State m) = State $ \s ->
+    let (s', a) = m s in
+    let (State mb) = binder a in
+    mb s'
+    
